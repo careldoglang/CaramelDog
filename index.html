@@ -1,12 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Baixar CaramelDog 🐶</title>
+  <style>
+    :root{
+      --bg:#fff7f0;
+      --card:#fff;
+      --accent:#d87b2e; /* caramelo forte */
+      --accent-2:#f4b041; /* caramelo claro */
+      --muted:#6b5a47;
+      --glass: rgba(255,255,255,0.6);
+      --radius:18px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%; margin:0; background:linear-gradient(180deg,var(--bg), #fff); color:var(--muted);}
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:36px;
+      box-sizing:border-box;
+    }
+
+    .card{
+      width:100%;
+      max-width:860px;
+      background:linear-gradient(180deg,var(--card), #fff);
+      border-radius:var(--radius);
+      box-shadow: 0 18px 40px rgba(30,20,10,0.12);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:22px;
+      align-items:center;
+      backdrop-filter: blur(6px);
+    }
+
+    @media (max-width:820px){
+      .card{ grid-template-columns: 1fr; padding:20px; }
+    }
+
+    .hero{
+      padding:12px 8px;
+    }
+
+    h1{
+      margin:0 0 8px 0;
+      font-size:28px;
+      letter-spacing: -0.4px;
+      color:#3b2e24;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .subtitle{
+      margin:0 0 18px 0;
+      color:#59493a;
+      font-size:15px;
+      line-height:1.45;
+    }
+
+    .features{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .pill{
+      background:linear-gradient(90deg,var(--glass), rgba(244,176,65,0.08));
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid rgba(216,123,46,0.08);
+    }
+
+    .download-col{
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:center;
+    }
+
+    .badge{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      box-shadow:0 8px 18px rgba(212,124,54,0.22);
+    }
+
+    .file-card{
+      width:100%;
+      background:linear-gradient(180deg, rgba(250,245,241,0.9), rgba(255,255,255,0.7));
+      border-radius:12px;
+      padding:12px;
+      border:1px solid rgba(0,0,0,0.04);
+      text-align:left;
+      font-size:14px;
+      color:#493b30;
+    }
+
+    .file-name{ font-weight:700; margin-bottom:6px; }
+    .meta{ font-size:13px; color:#6b5a47; opacity:0.9; }
+
+    .download-btn{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      padding:13px 18px;
+      width:100%;
+      border-radius:12px;
+      border:0;
+      cursor:pointer;
+      font-weight:800;
+      font-size:15px;
+      text-decoration:none;
+      color:white;
+      background:linear-gradient(90deg,var(--accent), var(--accent-2));
+      box-shadow: 0 12px 30px rgba(212,124,54,0.22);
+    }
+
+    .download-hint{
+      font-size:12px;
+      color:#7a6a5c;
+      text-align:center;
+    }
+
+    footer{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      align-items:center;
+      font-size:13px;
+      color:#7a6a5c;
+    }
+
+    a.gh{
+      color:var(--accent);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    /* small decorative paw */
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      background: linear-gradient(180deg,#fff, #fff0ea);
+      display:inline-grid;
+      place-items:center;
+      font-size:20px;
+      box-shadow: 0 6px 18px rgba(60,30,10,0.08);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+  </style>
 </head>
-<body style="text-align:center; font-family:sans-serif;">
-  <h1>CaramelDog 🐕‍🔥</h1>
-  <p>A linguagem brazuca feita com paixão e byte puro.</p>
-  <a href="CaramelDog.zip" download>Baixar CaramelDog</a>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="title">
+      <div class="hero">
+        <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
+          <div class="logo">🐶</div>
+          <div>
+            <h1 id="title">CaramelDog <span style="font-size:14px;opacity:0.85">v1 — alfa</span></h1>
+            <p class="subtitle">Linguagem brazuca feita por Cal. Download rápido, compile localmente e corra atrás do byte.</p>
+          </div>
+        </div>
+
+        <div class="features">
+          <div class="pill">compilador: caramelcc</div>
+          <div class="pill">arquivos: fontes + binários</div>
+          <div class="pill">licença: MIT</div>
+        </div>
+
+        <footer>
+          <div>Hospedado no GitHub Pages • <a class="gh" href="https://github.com/careldoglang/CaramelDog" target="_blank" rel="noopener">Ver no GitHub</a></div>
+        </footer>
+      </div>
+
+      <div class="download-col" aria-label="Área de download">
+        <div class="badge">Download</div>
+
+        <div class="file-card" id="fileCard">
+          <div class="file-name" id="fileName">CaramelDog.zip</div>
+          <div class="meta">Tamanho: — • Versão: — • Compatibilidade: Linux/Android (Termux)</div>
+        </div>
+
+        <!-- botão de download: substitui o href pelo caminho certo do teu zip -->
+        <a class="download-btn" id="downloadBtn" href="CaramelDog.zip" download>
+          ⬇️ Baixar CaramelDog
+        </a>
+
+        <div class="download-hint">Se estiver usando Termux: transfere o ZIP pro diretório do Termux antes de rodar.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // opcional: atualiza infos do arquivo se o servidor informar o Content-Length
+    (function(){
+      const a = document.getElementById('downloadBtn');
+      const fileNameEl = document.getElementById('fileName');
+      const fileCard = document.getElementById('fileCard');
+
+      // tenta obter cabeçalho (funciona se serving permite HEAD)
+      fetch(a.href, {method:'HEAD'}).then(r=>{
+        if (!r.ok) return;
+        const size = r.headers.get('content-length');
+        if (size) {
+          const kb = Math.round(size/1024);
+          fileCard.querySelector('.meta').textContent = `Tamanho: ${kb} KB • Versão: alfa • Compatibilidade: Linux/Android (Termux)`;
+        }
+      }).catch(()=>{/* ignore */});
+    })();
+  </script>
 </body>
-</html>
+  </html>
